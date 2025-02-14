@@ -1,0 +1,184 @@
+.header nav ul{
+    display: flex;
+    
+}
+
+.header nav ul li a{
+    font-size: 2rem;
+    padding: 10px 30px;
+    font-weight: 500;
+    transition: 0.3s;
+    border-radius: 50px;
+
+}
+
+.header nav ul li a:hover{
+    color: #ffff;
+    background-color: coral;
+}
+
+.header .menu{ 
+    /*Basicamente estou criando a caixa vazia em branco para colocar os 3 risquinos dentro. O none é para não aparecer na tela e ficar so os 3 risquinhos flutuando se tirar ele e colocar um backgroundo vai ver ele.*/
+    display: none;
+    
+    width: 60px;
+    height: 60px;
+    align-self: flex-end;
+}
+.header nav label{
+    display: flex;
+    flex-direction: column;
+}
+
+.header .hamburguer{
+    
+    background-color: #000;
+    position: relative;
+    width: 30px;
+    height: 2px;
+    display: block;
+    top: 29px;
+    left: 15px;
+    transition: 0.5 ease-in-out;
+    /*
+    A propriedade transition permite definir a transição entre dois estados de um elemento. 
+
+    A transição ease-in-out é uma técnica que suaviza a transição de uma animação, fazendo com que ela comece e termine lentamente, com uma aceleração no meio. 
+A transição ease-in-out é uma combinação das transições ease-in e ease-out. A ease-in faz com que a animação comece devagar e acelere no final, enquanto a ease-out faz com que a animação comece rápido e termine lento. */
+}
+
+/*Passar content: ""; no CSS é uma prática comum e serve para criar ou manipular elementos pseudo (como ::before e ::after). Isso acontece porque os pseudo-elementos precisam de um valor de content para serem renderizados. Mesmo que o conteúdo seja vazio, ele é necessário para ativar o pseudo-elemento. Aqui estão alguns usos comuns:
+
+No CSS, quando usamos pseudo-elementos como ::before ou ::after, o valor padrão de display é inline. Isso significa que, por padrão, eles se comportam como um pedaço de texto, ocupando apenas o espaço necessário na linha em que estão, o que pode limitar a aplicação de certas estilizações.
+
+Quando usamos content: "";, precisamos ajustar o display para controlar como o pseudo-elemento será renderizado e interage com os outros elementos. Aqui está o porquê de usar display: block; não permite o inline coisas como width e height
+
+*/
+.header .hamburguer::before,
+.header .hamburguer::after{
+    display: block;
+    background-color: #000;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.2s ease-in-out;
+}
+
+.header .hamburguer::before{
+    top: 10px;
+}
+
+.header .hamburguer::after{
+    bottom: 10px;
+}
+
+.header input{
+    display: none;
+    /*para caixinha de marcar sumir*/
+}
+
+/*header input:checked:
+
+Seleciona o input que está no estado marcado (checked).
+~label:
+
+Procura qualquer elemento label que seja um irmão do input no mesmo nível (ou seja, ambos estão dentro do mesmo elemento pai) e aparece depois dele.
+.hamburguer:
+
+Seleciona o elemento com a classe .hamburguer que está dentro do label encontrado.
+
+
+RESUMINDO O SELETOR:
+
+Ele diz:
+
+"Quando um input estiver marcado (checked), selecione o elemento .hamburguer que está dentro de qualquer label que seja irmão (e posterior) desse input."
+
+Exemplo prático
+Considere o seguinte HTML:
+
+html
+Copiar
+Editar
+<header>
+  <input type="checkbox" id="menu-hamburguer">
+  <label for="menu-hamburguer">
+    <div class="menu">
+      <span class="hamburguer"></span>
+    </div>
+  </label>
+</header>
+Aqui está o que acontece:
+
+O input e o label estão no mesmo nível dentro do header. Portanto, são irmãos.
+O seletor input:checked~label seleciona o label sempre que o input está marcado.
+O .hamburguer é então encontrado dentro do label.*/
+
+.header input:checked~label .hamburguer{
+    transform: rotate(45deg);
+
+    /*porque os outros risquinhos mexem também?   resposta:O risquinho do meio (.hamburguer) tem position: relative, o que faz dele a referência para os outros dois risquinhos (::before e ::after), que têm position: absolute. Assim:
+
+O relative do risquinho do meio define um "contexto de posicionamento" para os elementos ::before e ::after. Isso significa que:
+
+Qualquer deslocamento (top, bottom, left, right) nos pseudo-elementos será calculado em relação à posição do .hamburguer.
+Como os pseudo-elementos têm position: absolute, eles não afetam o fluxo normal do documento. Isso é útil para posicioná-los exatamente onde você quiser, como acima (::before) ou abaixo (::after) do risquinho do meio.
+
+No seu caso:
+
+O risquinho de cima (::before) está posicionado usando top: 10px; em relação ao .hamburguer.
+O risquinho de baixo (::after) está posicionado usando bottom: 10px; em relação ao .hamburguer.
+Quando você aplica transformações ao .hamburguer (como rotate), os pseudo-elementos continuam posicionados em relação a ele, o que cria o efeito de que todos os risquinhos se movem juntos.
+
+Resumo
+O risquinho do meio (.hamburguer) é como o "pivô" que os outros risquinhos usam para se posicionar.
+Os pseudo-elementos (::before e ::after) se ancoram nele por causa do absolute.
+Qualquer transformação no .hamburguer afeta os pseudo-elementos indiretamente porque eles dependem de sua posição.*/
+}
+
+.header input:checked~label .hamburguer::before{
+    transform: rotate(90deg);
+    top: 0;
+}
+
+
+.header input:checked~label .hamburguer::after{
+    transform: rotate(90deg);
+    bottom: 0;
+}
+
+@media(max-width:900px){
+    .header .menu{
+        display: block;
+    }
+
+    .header nav ul{
+        display: none;
+    }
+
+    .header input:checked~ ul{
+        display: block;
+    }
+
+    .header nav{
+        position: absolute;
+        top: 8px;
+        right: 1px;/*coloca na direita  da tele se eu aumentar ele afasta*/
+        z-index: 1;/*basicamente é camadas a de tras do meio e a da frente o z-index:1 coloca na camada da frente evitando que outras camadas encubram ele deixando inacessivel o menu para clicar*/
+    }
+
+    .header nav ul{
+        width: 200px;
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid black;
+    }
+
+    .header nav ul a{
+        display: block;
+        text-align: center;
+        padding: 20px;
+    }
+
+}

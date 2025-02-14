@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sítio da Pedra</title>
+
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/variables.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/menu.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+    <header class="header" id="inicial">
+        <div class="header-container">
+
+            <a href="#inicial">
+                <h1 class="logo">Sítio da Pedra</h1>
+            </a>
+            
+            <nav>
+                <input type="checkbox" id="menu-hamburguer">
+                <label for="menu-hamburguer">
+                    <div class="menu">
+                        <span class="hamburguer"></span>
+                    </div>
+                </label>
+
+                <ul>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#contact">contato</a></li>
+                </ul>
+            </nav>
+
+
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Sítio da Pedra</h2>
+    </section>
+
+    <section class="about" id="about">
+        <div class="item">
+            <h3>O Sítio</h3>
+            <p>O Sítio da Pedra, assim como o nome já diz, foi construído em cima de uma grande pedra, contando com uma infraestrutura inovadora que proporciona uma vista linda da própria cachoeira que fica abaixo dela. </p>
+           
+        </div>
+        <div class="image right"></div>
+        <div class="image left"></div>
+        <div class="item">
+            <h3>Fácil acesso</h3>
+            <p>O sítio conta com uma rota de fácil acesso, que conecta diretamente a casa com a cachoeira, se tornando assim uma comodidade muito bem-vinda.  </p>
+       
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="service1">
+           
+            <div class="service-info">
+                <h3>Área de Churrasco</h3>
+                <p>Se preferir, o ambiente também oferece uma ótima área de churrasco. </p>
+            </div>
+        </div>
+
+        <div class="service">
+            
+            <div class="service-info">
+                <h3>Piscina</h3>
+                <p>O ambiente também conta com uma linda e grande piscina ao lado da churrasqueira.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="imagens-slide">
+        <a href="javascript:void(0)" id="seta-voltar" class="seta-voltar opacidade">
+            <img class="imagem-seta" src="./src/images/seta.png" alt="seta voltar">
+        </a>
+    
+        <div class="slide slide-foto1 mostrar"></div>
+        <div class="slide slide-foto2"></div>
+        <div class="slide slide-foto3"></div>
+        <div class="slide slide-foto4">
+            <img src="./src/images/fogao-a-lenha.jpeg" alt="Fogão a lenha" class="imagem-fogao">
+
+        </div>
+    
+        <a href="javascript:void(0)" id="seta-avancar" class="seta-avancar">
+            <img class="imagem-seta" src="./src/images/seta.png" alt="seta avançar">
+        </a>
+    </section>
+    
+
+    <footer class="footer" id="contact">
+        <a href="#inicial">
+         <h4 >Sitio da Pedra</h4>
+        </a>
+      
+        <nav>
+            <ul>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+               
+                
+            </ul>
+        </nav>
+        <h4>Alugue</h4>
+        <div class="social">
+            <a href="https://www.facebook.com/share/15jejb1Qja/"><i class="fab fa-facebook-square" target="_blank"></i></a>
+
+            <a href=" https://www.instagram.com/sitiodapedra?utm_source=qr&igsh=MW96Z200NWFoa2gybA=="><i class="fab fa-instagram" target="_blank"></i></a>
+
+            <a href="https://wa.me/5531999130949?text=Oi,%20vim%20pelo%20site%20de%20aluguel%20do%20sítio." target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> 
+            </a>
+           
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="./src/js/slider.js"></script>
+</body>
+
+</html>

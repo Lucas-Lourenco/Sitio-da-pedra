@@ -1,0 +1,396 @@
+html{
+    font-size: 62.5%;
+}
+/*poderia ter usado o grid para fazer*/
+body{
+    display: grid;
+    grid-template-areas: "header header header header"
+                         "hero hero hero hero"
+                         "about about about about"
+                         "services services services services"
+                         "projects projects projects projects"
+                         "footer footer footer footer";
+    grid-template-columns: repeat(4,1fr);
+    font-family: 'Roboto',sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;/*padrão*/
+    
+}
+
+
+/*HEADER*/
+
+.header{
+    grid-area: header;
+   
+}
+
+.header .header-container{
+    display: flex;
+    padding: 20px 40px;
+    justify-content: space-between;/*o a é tartado como um filho e o  nav como outro filho*/
+    align-items: center;
+    min-height: 75px;
+}
+
+.header h1{
+    font-size: 3rem;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.header a:hover h1{
+    color: coral;
+
+}
+/*hero*/
+
+.hero{
+    grid-area: hero;
+    height: 79vh;
+    background: url(../images/sitio-principal.jpeg) center center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.hero h2{
+    color: #f1ebeb;
+    font-size: 4rem;
+    font-weight: 500;
+   
+}
+
+/*Você utilizou .hero:after ao invés de h2:after porque o efeito desejado (colocar a seta centralizada abaixo da seção) está mais relacionado à seção inteira (.hero) do que ao elemento h2. Aqui está o motivo principal:
+
+Contexto da posição da seta:
+
+Ao usar .hero:after, você está adicionando o pseudo-elemento em relação à seção inteira. Como .hero já é o contêiner principal da seção com position: relative, o pseudo-elemento será posicionado em relação a toda a área da seção.
+Isso garante que a seta fique centralizada horizontalmente (porque o pseudo-elemento :after segue as dimensões de .hero), independentemente do tamanho ou alinhamento do texto h2.*/
+.hero:after{
+    /*passar imagens no after usa content ao inves de background*/
+    content: url(../images/seta_preta.png);
+    position: absolute;
+    height: 35px;
+    bottom: 40px;
+    /*agora para fazer a seta ficar animada usamos a propriedade animation que passa os valores : nome tempo de animação infinite para ser um loop e alternative easy-in-out que faz a animação alternar entre o estado inicial e o estado final */
+
+    animation: downarrow 0.6s infinite alternate ease-in-out;
+}
+/*esse @ é o que faz a animação propriamente dita */
+@-webkit-keyframes downarrow{
+    0%{ -webkit-transform:translateY(0); opacity: 0.4;}
+    100%{ -webkit-transform: translateY(0.4em);opacity: 0.9;}
+}
+
+@media(max-width:450px){
+    .hero{
+        height: 60vh;
+    }
+    .hero h2{
+        font-size: 2.3rem
+    }
+}
+
+/*about*/
+
+.about{
+    grid-area: about;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: var(--max-width-size);
+    margin: 0 auto;
+}
+
+.about .item{
+    padding: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;/*enquanto o align-items meche nos livros da estante o aligng-content mexe na propria pratileira*/
+}
+
+.about .image{
+    width: 100%;
+    height: 100%;
+}
+
+.about .image.right{
+    /*quando é duas classes na mesma div tem que colocar colada uma na outra*/
+    background: url(../images/sitio-noite.jpeg) center center no-repeat;
+    background-size: cover;
+}
+
+
+.about .image.left{
+    /*quando é duas classes na mesma div tem que colocar colada uma na outra*/
+    background: url(../images/facil-acesso.jpeg) center center no-repeat;
+    background-size: cover;
+}
+
+.about .item h3{
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.about .item p{
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 30px 0px;/*vertical/lados*/
+}
+
+.about .item .btn-know-more{
+    font-size: 1.6rem;
+    align-self: flex-start;/*sem isso a area clicavel do link ocupa a linha toda e não so a palavra */
+}
+
+@media(max-width:450px){
+    .about{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,1fr);
+        gap: 1px;
+    }
+
+    .about .items{
+        
+        text-align: center;
+    }
+}
+
+.about .item .btn-know-more:hover{
+    font-weight: 700;
+}
+
+/*services*/
+
+.services{
+    grid-area: services;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+   
+}
+
+.services .service1{
+    padding: 70px 20px;
+    background: url(../images/churrasqueira.jpeg) center center no-repeat ;
+    background-size: cover;
+    
+}
+
+.services .service1 .service-info{
+    color: #e4e3e2;
+}
+
+.services .service .service-info{
+    color: #e4e3e2;
+    margin-bottom: 70px;
+}
+
+.services .service{
+    padding: 70px 20px;
+    background: url(../images/piscina.jpeg) center center no-repeat ;
+    background-size: cover;
+}
+
+.services .service h3{
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.services .service p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    max-width: 400px;
+    margin: 1px auto 0;/*alinha o texto no meio com o auto */
+    line-height: 25px;
+
+}
+
+.services .service1 h3{
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 200px;
+}
+
+.services .service1 p{
+    font-size: 2rem;
+    font-weight: 500;
+    max-width: 400px;
+    margin: 1px auto 0;/*alinha o texto no meio com o auto */
+    line-height: 25px;
+
+}
+
+
+@media(max-width:450px){
+    .services{
+        grid-template-columns: 1fr;
+    }
+}
+
+/*projects*/
+
+
+
+
+/*carrossel*/
+
+
+.imagens-slide{
+    display: flex;
+    position: relative;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.imagens-slide .slide{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    font-size: 20px;
+
+}
+
+
+.opacidade{
+    opacity: 0.6;
+    cursor: default;
+}
+.seta-voltar, .seta-avancar{
+    position: absolute;
+    z-index: 1;
+}
+
+.seta-voltar{
+    left: 4%;
+    transform: rotateY(180deg);
+}
+
+.seta-avancar{
+    right: -290%;
+}
+
+.seta-voltar .imagem-seta, .seta-avancar .imagem-seta{
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+   background-color: rgb(195, 108, 98);
+}
+
+.imagens-slide .slide.mostrar{
+    opacity: 1;
+}
+
+.slide-foto1{
+    background-image: url(../images/fonte.jpeg);
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: contain;
+}
+
+.slide-foto2{
+    background-image: url(../images/caminho.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.slide-foto3{
+    background-image: url(../images/cachoeira.jpeg);
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: contain;
+}
+
+.slide-foto4 .imagem-fogao {
+    width: 100vw;
+  
+    height: auto;
+    max-height: 100vh;
+    object-fit: contain;
+}
+
+
+
+@media(max-width:768px){
+    .projects{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+@media(max-width:450px){
+    .projects{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,1fr);
+    }
+}
+/*footer*/
+
+.footer{
+    grid-area: footer;
+    background-color: lightgreen;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 0;
+}
+.footer h4{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+}
+
+.footer nav{
+    margin: 50px 0;
+}
+
+.footer nav ul{
+    display: flex;
+    justify-content: center;
+    max-width: 320px;
+    margin: 0 auto;
+
+/*sempre que usamos max-width temos que colocar o margin 0 auto para centralizarnovamente o conteudo*/
+
+}
+
+
+.footer nav ul li a{
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+.footer nav ul li a:hover{
+    font-weight: 700;
+    color: #fff;
+}
+
+.footer .social i{
+    font-size: 2rem;
+    transition: 0.3s;
+}
+
+.footer .social a{
+    margin: 20px;
+}
+
+.footer .social a:hover{
+    color: #fff;
+}
