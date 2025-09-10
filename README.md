@@ -22,7 +22,7 @@ O **Sítio da Pedra** é um projeto de site voltado para o aluguel de um sítio 
 ## **Como Usar**
 1. Clone este repositório para sua máquina local:
    ```bash
-   git clone https://github.com/seu-usuario/sitio-da-pedra.git
+   git clone https://github.com/Lucas-Lourenco/sitio-da-pedra.git
    ```
 
 2. Navegue até a pasta do projeto:
