@@ -4,7 +4,7 @@
 # **Sítio da Pedra - Projeto de Aluguel de Sítio**
 
 ## **Descrição**
-O **Sítio da Pedra** é um projeto de site voltado para o aluguel de um sítio localizado em uma área com belíssima vista para uma cachoeira. O objetivo é apresentar a infraestrutura do local, como a área de churrasco, piscina e o fácil acesso, facilitando o contato com os interessados por meio do WhatsApp, Instagram ou Facebook.
+O **Sítio da Pedra** é um projeto de site voltado para o aluguel de um sítio localizado em uma área com belíssima vista para uma cachoeira. O objetivo é apresentar a infraestrutura do local, como a área de churrasco, piscina e o fácil acesso, facilitando o contato com os interessados por meio do WhatsApp e Facebook.
 
 ## **Funcionalidades**
 - **Página Inicial**: Apresentação do sítio e suas principais características.
